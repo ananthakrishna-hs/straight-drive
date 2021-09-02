@@ -1,0 +1,61 @@
+@keyframes resize {
+  from {
+    height: 100vh;
+  }
+
+  to {
+    height: 150px;
+  }
+}
+
+header#animated-header {
+  background-color: #e6f2ff;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  animation: resize 0.5s linear 2s both;
+
+  @keyframes drive {
+    from {
+      transform: rotate(0deg);
+      opacity: 1.0;
+    }
+
+    to {
+      transform: rotate(225deg);
+    }
+  }
+
+  @keyframes shot {
+    from {
+      left: calc(100% - 50px);
+      opacity: 0;
+    }
+
+    to {
+      left: 5px;
+      opacity: 1;
+    }
+  }
+
+  img#bat {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: drive 0.5s linear forwards;
+  }
+
+  h1#title {
+    margin: 0;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    animation: shot 1.5s linear 0.25s both;
+  }
+
+}

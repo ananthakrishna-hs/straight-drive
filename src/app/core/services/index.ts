@@ -1,0 +1,1 @@
+export * from 'src/app/core/services/animation-handler.service';
