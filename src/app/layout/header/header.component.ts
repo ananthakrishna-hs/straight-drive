@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 
 import { AnimationHandlerService } from 'src/app/core';
 
@@ -9,21 +9,22 @@ import { AnimationHandlerService } from 'src/app/core';
 })
 export class HeaderComponent implements AfterViewInit {
   id = 'animated-header';
-  showHeader = false;
+
+  @Output()
+  animationEndEvent: EventEmitter<boolean>;
   constructor(
     private animationHandler: AnimationHandlerService
   ) {
-    this.animationHandler.getHeaderStatus().subscribe(status => this.showHeader = status);
+    this.animationEndEvent = new EventEmitter<boolean>();
   }
 
   handleAnimationEnd(targetId: string): void {
     if (targetId === this.id) {
-      this.animationHandler.changeCarouselStatus(true);
+      this.animationEndEvent.emit(true);
     }
   }
 
   ngAfterViewInit(): void {
-    const id = 'animated-header';
     document.getElementById('animated-header')?.addEventListener('animationend', (event) => this.handleAnimationEnd((<HTMLInputElement>event.target).id));
   }
 

@@ -1,0 +1,14 @@
+<div class="faq-item-container">
+  <div class="question-container" (click)="toggleAnswer()">
+    <span class="question-content">
+      {{ faqItemContent?.question }}
+    </span>
+    <span class="dropdown">
+      <fa-icon *ngIf="!showAnswer" [icon]="faChevronDown" [@appearAnimation]></fa-icon>
+      <fa-icon *ngIf="showAnswer" [icon]="faChevronUp" [@appearAnimation]></fa-icon>
+    </span>
+  </div>
+  <div *ngIf="showAnswer" [@appearAnimation] [@disappearAnimation] class="answer-container">
+    {{ faqItemContent?.answer }}
+  </div>
+</div>

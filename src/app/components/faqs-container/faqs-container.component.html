@@ -1,0 +1,12 @@
+<section class="faq-container">
+  <h2 class="section-header">
+    Frequently Asked Questions
+  </h2>
+  <app-faq-item
+    *ngFor="let item of faqItems; index as i"
+    [faqItemContent]="item"
+    [id]="i"
+    (answerToggleEvent)="handleToggle($event)"
+  >
+  </app-faq-item>
+</section>

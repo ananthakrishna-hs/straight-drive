@@ -1,15 +1,17 @@
 @keyframes resize {
   from {
-    height: 100vh;
+    height: 95vh;
+    background-color: #e6f2ff;
   }
 
   to {
     height: 150px;
+    background-color: #cce4ff;
+    box-shadow: 0 5px 15px gray;
   }
 }
 
 header#animated-header {
-  background-color: #e6f2ff;
   position: relative;
   height: 100vh;
   overflow: hidden;

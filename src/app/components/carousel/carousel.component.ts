@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AnimationHandlerService } from 'src/app/core';
+import { AnimationHandlerService, GalleryImageItems } from 'src/app/core';
 
 @Component({
   selector: 'app-carousel',
@@ -8,12 +8,10 @@ import { AnimationHandlerService } from 'src/app/core';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  showCarousel = false;
-  images: Array<{path: string}> = [];
+  images: GalleryImageItems = [];
   constructor(
     private animationHandler: AnimationHandlerService
   ) {
-    this.animationHandler.getCarouselStatus().subscribe(status => this.showCarousel = status);
   }
 
   ngOnInit(): void {

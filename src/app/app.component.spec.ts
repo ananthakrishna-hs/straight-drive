@@ -30,20 +30,16 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('straight-drive');
   });
 
+  it(`should have page status as false by default`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.showPage).toBeFalse();
+  });
+
   /* it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('straight-drive app is running!');
   }); */
-
-  it('header is called', (done: DoneFn) => {
-    const animationHandler = new AnimationHandlerService();
-    const appComponent = new AppComponent(animationHandler);
-    
-    animationHandler.getHeaderStatus().subscribe(status => {
-      expect(status).toBeTrue();
-      done();
-    });
-  });
 });

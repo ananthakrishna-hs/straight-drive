@@ -1,0 +1,36 @@
+div.faq-item-container {
+  margin: 15px 0;
+  padding: 10px 0;
+  border-bottom: 1px inset #d8d8d8;
+
+  div.question-container {
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+
+    span.question-content {
+      width: 75%;
+      display: inline-block;
+
+      &:hover {
+        color: #cc00cc;
+      }
+    }
+
+    span.dropdown {
+      position: relative;
+      width: 25%;
+      display: inline-block;
+
+      .ng-fa-icon {
+        float: right;
+      }
+    }
+  }
+
+  div.answer-container {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}

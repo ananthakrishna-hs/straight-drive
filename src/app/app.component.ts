@@ -9,6 +9,11 @@ import { AnimationHandlerService } from 'src/app/core';
 })
 export class AppComponent {
   title = 'straight-drive';
+  showPage = false;
+
+  togglePage(status: boolean): void {
+    this.showPage = status;
+  }
 
   constructor(
     private animationHandler: AnimationHandlerService

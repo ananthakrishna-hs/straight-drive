@@ -1,23 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
-import { HeaderComponent } from 'src/app/header/header.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import { HeaderComponent } from 'src/app/layout/header/header.component';
+import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
+import { FaqsContainerComponent } from 'src/app/components/faqs-container/faqs-container.component';
+import { FaqItemComponent } from 'src/app/components/faqs-container/faq-item/faq-item.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CarouselComponent
+    CarouselComponent,
+    FaqsContainerComponent,
+    FaqItemComponent,
+    LandingPageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
