@@ -8,6 +8,7 @@ import { AnimationHandlerService } from 'src/app/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements AfterViewInit {
+  id = 'animated-header';
   showHeader = false;
   constructor(
     private animationHandler: AnimationHandlerService
@@ -15,13 +16,15 @@ export class HeaderComponent implements AfterViewInit {
     this.animationHandler.getHeaderStatus().subscribe(status => this.showHeader = status);
   }
 
+  handleAnimationEnd(targetId: string): void {
+    if (targetId === this.id) {
+      this.animationHandler.changeCarouselStatus(true);
+    }
+  }
+
   ngAfterViewInit(): void {
     const id = 'animated-header';
-    document.getElementById('animated-header')?.addEventListener('animationend', (event) => {
-      if (event.target && (<HTMLInputElement>event.target).id === id) {
-        this.animationHandler.changeCarouselStatus(true);
-      }
-    });
+    document.getElementById('animated-header')?.addEventListener('animationend', (event) => this.handleAnimationEnd((<HTMLInputElement>event.target).id));
   }
 
 }
