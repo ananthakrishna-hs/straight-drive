@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from 'src/app/layout/header/header.component';
-import { AnimationHandlerService } from 'src/app/core';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;

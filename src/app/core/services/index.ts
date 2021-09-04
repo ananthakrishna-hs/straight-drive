@@ -1,1 +1,1 @@
-export * from 'src/app/core/services/animation-handler.service';
+export * from 'src/app/core/services/data-handler.service';

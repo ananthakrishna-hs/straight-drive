@@ -1,6 +1,6 @@
 import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 
-import { AnimationHandlerService, FaqItems } from 'src/app/core';
+import { FaqItems } from 'src/app/core';
 import { FaqItemComponent } from 'src/app/components/faqs-container/faq-item/faq-item.component';
 
 @Component({
@@ -16,12 +16,13 @@ export class FaqsContainerComponent {
 
   @ViewChildren(FaqItemComponent)
   listItems?: QueryList<FaqItemComponent>;
-  constructor(
-    private animationHandler: AnimationHandlerService
-  ) {
+  constructor() {
   }
 
   handleToggle(id: number): void {
+    if (!this.listItems?.length) {
+      return;
+    }
     const items = this.listItems?.toArray();
     if (items) {
       if (this.open === -1) {

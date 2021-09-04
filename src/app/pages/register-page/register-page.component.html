@@ -1,1 +1,121 @@
-<p>register-page works!</p>
+<section class="form-container">
+  <form class="register-form">
+    <div class="form-group">
+      <label for="name">
+        Name
+        <span class="required-mark" aria-hidden="true">*</span>
+      </label>
+      <div class="custom-bordered-field">
+        <input type="text" [(ngModel)]="name" id="name" maxlength="40" required name="name" placeholder="John Doe">
+        <span class="custom-border"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="number">
+        Number
+        <span class="required-mark" aria-hidden="true">*</span>
+      </label>
+      <div class="number-fields">
+        <div class="custom-bordered-field country-code">
+          <div class="country-code-sign">+</div>
+          <input type="text" [(ngModel)]="countryCode" id="countryCode" required name="countryCode" placeholder="91" digitOnly maxlength="3">
+          <span class="custom-border"></span>
+        </div>
+        <div class="custom-bordered-field number">
+          <input type="text" [(ngModel)]="number" id="number" required name="number" placeholder="1234567890" maxlength="13">
+          <span class="custom-border"></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">
+        Email
+        <span class="required-mark" aria-hidden="true">*</span>
+      </label>
+      <div class="custom-bordered-field">
+        <input type="email" [(ngModel)]="email" id="email" required name="email" maxlength="40" placeholder="john@email.com">
+        <span class="custom-border"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">
+        State
+        <span class="required-mark" aria-hidden="true">*</span>
+      </label>
+      <div class="custom-bordered-field">
+        <select class="select-field" id="state" required [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+          <option [ngValue]="null" hidden>Select State</option>
+          <option *ngFor="let state of states" [value]="state">
+            {{ state }}
+          </option>
+        </select>
+        <span class="custom-border"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="custom-check-container">
+        Do you agree to Terms and Conditions?
+        <input type="checkbox" [(ngModel)]="confirmation" [ngModelOptions]="{standalone: true}" />
+        <span class="check-tick"></span>
+      </label>
+    </div>
+    <div class="buttons-group">
+      <button [disabled]="!confirmation" class="btn btn-primary" type="submit" (click)="handleSubmit()">Submit</button>
+      <button class="btn btn-link" type="reset" (click)="handleReset()">Reset</button>
+    </div>
+  </form>
+</section>
+
+<ng-template #error let-modal>
+  <div class="modal-header">
+    <h2 class="text-danger">
+      Error
+    </h2>
+    <fa-icon [icon]="faTimes" (click)="modal.dismiss()"></fa-icon>
+  </div>
+  <div class="modal-body">
+    <p>
+      {{ errorMessage }}
+    </p>
+  </div>
+</ng-template>
+
+<ng-template #confirm let-modal>
+  <div class="modal-header">
+    <h2 class="text-sucess">
+      Confirm
+    </h2>
+    <fa-icon [icon]="faTimes" (click)="modal.dismiss()"></fa-icon>
+  </div>
+  <div class="modal-body">
+    <p>
+      Please confirm entered infromation!
+    </p>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="text-bold">Name: </td>
+          <td>{{ name }}</td>
+        </tr>
+        <tr>
+          <td class="text-bold">Number: </td>
+          <td>+  {{ countryCode }} {{ number }}</td>
+        </tr>
+        <tr>
+          <td class="text-bold">Email: </td>
+          <td>{{ email }}</td>
+        </tr>
+        <tr>
+          <td class="text-bold">State: </td>
+          <td>{{ state }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button *ngIf="!isLoading" class="btn btn-success" (click)="handleConfirm()">
+        OK
+      </button>
+      <p *ngIf="isLoading">Loading please wait....</p>
+    </div>
+  </div>
+</ng-template>

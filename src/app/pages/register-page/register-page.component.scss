@@ -1,0 +1,141 @@
+section.form-container {
+  width: 85%;
+  margin: 25px auto;
+  background-color: #f2e6ff;
+  box-shadow: 0 5px 20px 10px #8080ff;
+  padding: 15px;
+
+  form.register-form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      width: 100%;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+
+      .custom-bordered-field {
+        position: relative;
+        input,
+        select {
+          &:focus {
+            outline: none;
+          }
+          width: 100%;
+          border: none;
+          height: 50px;
+          background-color: #fff;
+          border-bottom: 1px solid #929fba;
+          padding: 5px;
+
+          & ~ .custom-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #3399FF;
+            transition: 0.5s;
+          }
+
+          &:focus ~ .custom-border {
+            width: 100%;
+            transition: 0.5s;
+          }
+        }
+
+        .custom-border {
+          border: 1px solid #8080ff !important;
+        }
+      }
+  
+      label {
+        font-weight: bold;
+      }
+
+      span.required-mark {
+        color: red;
+      }
+
+      div.number-fields {
+        display: flex;
+
+        div.country-code-sign {
+          background-color: #fff;
+          height: 50px;
+          padding: 12px 0;
+          border-bottom: 1px solid #929fba;
+          color:#999
+        }
+
+        div.country-code {
+          width: 30%;
+          display: flex;
+        }
+
+        div.number {
+          width: 100%;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    .buttons-group {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      button {
+        margin: 0 15px;
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  section.form-container {
+    width: 65%;
+    padding: 15px 35px;
+
+    form.register-form {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .form-group {
+        width: 50%;
+        padding: 0 15px;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .modal-content {
+
+    .modal-header {
+      h4.text-danger {
+        font-size: 18px;
+      }
+
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+}

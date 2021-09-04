@@ -58,6 +58,7 @@ header#animated-header {
     transform: translateY(-50%);
     white-space: nowrap;
     animation: shot 1.5s linear 0.25s both;
+    cursor: pointer;
   }
 
 }

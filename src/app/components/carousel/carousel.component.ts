@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AnimationHandlerService, GalleryImageItems } from 'src/app/core';
+import { GalleryImageItems } from 'src/app/core';
 
 @Component({
   selector: 'app-carousel',
@@ -9,9 +9,7 @@ import { AnimationHandlerService, GalleryImageItems } from 'src/app/core';
 })
 export class CarouselComponent implements OnInit {
   images: GalleryImageItems = [];
-  constructor(
-    private animationHandler: AnimationHandlerService
-  ) {
+  constructor() {
   }
 
   ngOnInit(): void {

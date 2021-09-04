@@ -1,7 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 
-import { AnimationHandlerService } from 'src/app/core';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,9 +10,7 @@ export class HeaderComponent implements AfterViewInit {
 
   @Output()
   animationEndEvent: EventEmitter<boolean>;
-  constructor(
-    private animationHandler: AnimationHandlerService
-  ) {
+  constructor() {
     this.animationEndEvent = new EventEmitter<boolean>();
   }
 

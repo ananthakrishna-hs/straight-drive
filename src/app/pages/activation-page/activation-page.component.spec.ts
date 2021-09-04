@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
+import { ActivationPageComponent } from './activation-page.component';
 
-describe('CarouselComponent', () => {
-  let component: CarouselComponent;
-  let fixture: ComponentFixture<CarouselComponent>;
+describe('ActivationPageComponent', () => {
+  let component: ActivationPageComponent;
+  let fixture: ComponentFixture<ActivationPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarouselComponent ]
+      declarations: [ ActivationPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarouselComponent);
+    fixture = TestBed.createComponent(ActivationPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

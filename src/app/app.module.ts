@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { DigitOnlyModule } from '@uiowa/digit-only';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
@@ -16,6 +19,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { ActivationPageComponent } from './pages/activation-page/activation-page.component';
+import { ActivationGuard } from 'src/app/core';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,8 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     FaqItemComponent,
     LandingPageComponent,
     FooterComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ActivationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +40,12 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     AppRoutingModule,
     IvyCarouselModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    DigitOnlyModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ActivationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

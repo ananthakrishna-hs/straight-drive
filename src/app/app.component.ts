@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { AnimationHandlerService } from 'src/app/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,9 +13,6 @@ export class AppComponent {
     this.showPage = status;
   }
 
-  constructor(
-    private animationHandler: AnimationHandlerService
-  ) {
-    this.animationHandler.changeHeaderStatus(true);
+  constructor() {
   }
 }

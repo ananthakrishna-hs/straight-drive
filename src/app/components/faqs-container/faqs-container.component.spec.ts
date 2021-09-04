@@ -33,11 +33,9 @@ describe('FaqsContainerComponent', () => {
   });
 
   it('shouldnot open if no items', () => {
-    fixture.detectChanges();
-    const items = fixture.debugElement.queryAll(By.css('app-faq-item'));
-    const components = items.map(item => item.componentInstance);
-    fixture.componentInstance.listItems?.reset(components);
+    component.faqItems = [];
     component.handleToggle(2);
+    fixture.detectChanges();
     expect(component.open).toBe(-1);
   });
 
