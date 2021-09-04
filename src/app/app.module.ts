@@ -15,6 +15,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { FooterComponent } from './layout/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FaqsContainerComponent,
     FaqItemComponent,
     LandingPageComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,

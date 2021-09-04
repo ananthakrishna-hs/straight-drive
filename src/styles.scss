@@ -2,6 +2,9 @@
 body {
   margin: 0;
   background-color: #e6f2ff;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
