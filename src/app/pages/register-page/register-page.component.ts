@@ -110,6 +110,11 @@ export class RegisterPageComponent implements OnDestroy {
       this.showError(errorTypes.STATE_INVALID);
       return;
     }
+
+    if (!this.confirmation) {
+      this.showError(errorTypes.NOT_AGREED);
+      return;
+    }
     
     this.showConfirm();
   }

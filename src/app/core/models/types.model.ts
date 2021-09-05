@@ -22,7 +22,8 @@ export const errorTypes = {
   COUNTRY_CODE_INVALID: 'Please mention correct country code',
   NUMBER_INVALID: 'Number should be between 9 and 13 digits',
   EMAIL_INVALID: 'Entered email is invalid',
-  STATE_INVALID: 'Please select state'
+  STATE_INVALID: 'Please select state',
+  NOT_AGREED: 'Please agree to terms and conditions'
 };
 
 export interface InsertRequest {

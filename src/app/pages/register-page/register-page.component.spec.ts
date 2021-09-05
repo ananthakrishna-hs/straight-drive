@@ -170,12 +170,28 @@ describe('RegisterPageComponent', () => {
     expect(component.errorMessage).not.toBe(errorTypes.STATE_INVALID);
   });
 
+  it('confirmation should be false by default', () => {
+    expect(component.confirmation).toBeFalsy();
+  });
+
+  it('should not allow confirmation to terms', () => {
+    component.name = 'Alpha123';
+    component.countryCode = '91';
+    component.number = '1234567890123';
+    component.email = 'Test@abc.com';
+    component.state = component.states[0];
+    component.confirmation = false;
+    component.handleSubmit();
+    expect(component.errorMessage).toBe(errorTypes.NOT_AGREED);
+  });
+
   it('should accept all valid data', () => {
     component.name = 'Alpha123';
     component.countryCode = '91';
     component.number = '1234567890123';
     component.email = 'Test@abc.com';
     component.state = component.states[0];
+    component.confirmation = true;
     component.handleSubmit();
     expect(component.errorMessage).toBeFalsy();
   });
