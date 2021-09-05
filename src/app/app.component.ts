@@ -9,6 +9,10 @@ export class AppComponent {
   title = 'straight-drive';
   showPage = false;
 
+  /**
+   * To change visibility of content and footer.
+   * @param {boolean} status Status of page to be updated
+   */
   togglePage(status: boolean): void {
     this.showPage = status;
   }

@@ -24,6 +24,7 @@ export class ActivationPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // To render success animation on activation.
     this.canvasContext = this.canvasRef?.nativeElement.getContext('2d');
 
     this.canvasContext.lineWidth = 5;
@@ -38,6 +39,7 @@ export class ActivationPageComponent implements OnInit {
     let rightX = mid - (5 / 2.7);
     let rightY = mid + (5 / 2.7);
 
+    // The path starting part of tick mark.
     for (let i = start; i < mid; i++) {
       setTimeout(() => {
         this.canvasContext.beginPath();
@@ -49,6 +51,7 @@ export class ActivationPageComponent implements OnInit {
       }, 1 + (i * 20) / 3);
     }
 
+    // The path from middle to ending part of tick mark.
     for (let i = mid; i < end; i++) {
       setTimeout(() => {
         this.canvasContext.beginPath();

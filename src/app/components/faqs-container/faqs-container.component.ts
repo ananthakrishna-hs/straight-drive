@@ -19,6 +19,10 @@ export class FaqsContainerComponent {
   constructor() {
   }
 
+  /**
+   * To ensure only one faq item expanded at a time.
+   * @param {number} id The index of faq item whose toggle is called
+   */
   handleToggle(id: number): void {
     if (!this.listItems?.length) {
       return;

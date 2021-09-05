@@ -50,12 +50,19 @@ export class RegisterPageComponent implements OnDestroy {
     ];
   }
 
+  /**
+   * To reset all values on form reset event.
+   */
   handleReset(): void {
     this.state = null;
     this.confirmation = false;
     this.errorMessage = '';
   }
 
+  /**
+   * To display error modal.
+   * @param {string} errorMessage Error message to be displayed on modal 
+   */
   showError(errorMessage: string): void {
     this.errorMessage = errorMessage;
     this.modal.open(this.errorModal, {
@@ -63,6 +70,9 @@ export class RegisterPageComponent implements OnDestroy {
     });
   }
 
+  /**
+   * To show confirmation modal on valid input.
+   */
   showConfirm(): void {
     this.errorMessage = '';
     this.modal.open(this.confirmModal, {
@@ -70,6 +80,10 @@ export class RegisterPageComponent implements OnDestroy {
     });
   }
 
+  /**
+   * To handle submission of form.
+   * @description Function validates all fields and calls `showError` on failure or `showConfirm` on success.
+   */
   handleSubmit(): void {
     if (!this.name || !this.name.match(Regexps.NAME_REGEX)) {
       this.showError(errorTypes.NAME_INVALID);
@@ -99,6 +113,9 @@ export class RegisterPageComponent implements OnDestroy {
     this.showConfirm();
   }
 
+  /**
+   * To close the open modals if any.
+   */
   closeModal(): void {
     this.modal.dismissAll();
   }
@@ -107,11 +124,19 @@ export class RegisterPageComponent implements OnDestroy {
     this.closeModal();
   }
 
+  /**
+   * To display error alert message.
+   * @param {string} message The alert messge to be shown 
+   */
   errorHandler(message: string): void {
     alert(message);
     this.isLoading = false;
   }
 
+  /**
+   * To route on success.
+   * @param {InsertResponse} data Success response from API
+   */
   succesHandler(data: InsertResponse): void {
     if (data.created === 1) {
       this.dataHandler.toggleIsActivate(true);
@@ -119,6 +144,10 @@ export class RegisterPageComponent implements OnDestroy {
     }
   }
 
+  /**
+   * To handle confirmation event by user.
+   * @description Calls API to insert row into sheets.
+   */
   handleConfirm(): void {
     this.isLoading = true;
     this.dataHandler.insertRow({

@@ -14,6 +14,10 @@ export class HeaderComponent implements AfterViewInit {
     this.animationEndEvent = new EventEmitter<boolean>();
   }
 
+  /**
+   * To handle animationend of header element.
+   * @param {string} targetId ID of HTMLElement which triggered animationend
+   */
   handleAnimationEnd(targetId: string): void {
     if (targetId === this.id) {
       this.animationEndEvent.emit(true);

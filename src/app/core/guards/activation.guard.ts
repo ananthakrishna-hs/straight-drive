@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
+import { CanActivate, Router, UrlTree } from "@angular/router";
 
 import { DataHandlerService } from 'src/app/core';
 
@@ -12,7 +12,11 @@ export class ActivationGuard implements CanActivate {
     private router: Router
   ) {}
 
-  canActivate() {
+  /**
+   * To guard /success route via activation status.
+   * @returns {true | UrlTree} True if success else route to landing
+   */
+  canActivate(): true | UrlTree {
     if (this.dataHandler.isActivated()) {
       return true;
     }
