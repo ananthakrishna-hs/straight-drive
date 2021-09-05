@@ -90,12 +90,13 @@ export class RegisterPageComponent implements OnDestroy {
       return;
     }
 
-    if (!this.countryCode || isNaN(Number(this.countryCode))) {
+    if (!this.countryCode || isNaN(Number(this.countryCode)) || !this.countryCode.match(Regexps.NUMBER_REGEX)) {
       this.showError(errorTypes.COUNTRY_CODE_INVALID);
       return;
     }
 
-    if (!this.number || isNaN(Number(this.number)) || this.number.length < 9 || this.number.length > 13) {
+    if (!this.number || isNaN(Number(this.number)) || this.number.length < 9 ||
+    this.number.length > 13 || !this.number.match(Regexps.NUMBER_REGEX)) {
       this.showError(errorTypes.NUMBER_INVALID);
       return;
     }

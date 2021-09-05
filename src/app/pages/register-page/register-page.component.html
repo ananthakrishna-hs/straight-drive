@@ -18,11 +18,11 @@
       <div class="number-fields">
         <div class="custom-bordered-field country-code">
           <div class="country-code-sign">+</div>
-          <input type="text" [(ngModel)]="countryCode" id="countryCode" required name="countryCode" placeholder="91" digitOnly maxlength="3">
+          <input type="text" [(ngModel)]="countryCode" id="countryCode" required name="countryCode" placeholder="91" digitOnly maxlength="3" inputmode="numeric" pattern="[0-9]*">
           <span class="custom-border"></span>
         </div>
         <div class="custom-bordered-field number">
-          <input type="text" [(ngModel)]="number" id="number" required name="number" placeholder="1234567890" maxlength="13">
+          <input type="text" [(ngModel)]="number" id="number" required name="number" placeholder="1234567890" maxlength="13" inputmode="numeric" pattern="[0-9]*">
           <span class="custom-border"></span>
         </div>
       </div>
