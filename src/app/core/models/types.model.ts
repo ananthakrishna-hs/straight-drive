@@ -14,7 +14,8 @@ export interface FaqItems extends Array<FaqItem> {}
 export const Regexps = {
   NAME_REGEX: /^[a-z0-9\s]+$/i,
   NUMBER_REGEX: /^[0-9]+$/,
-  EMAIL_REGEX: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  EMAIL_REGE: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+.(?:\.[a-zA-Z0-9-]+)*$/,
+  EMAIL_REGEX: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/
 }
 
 export const errorTypes = {

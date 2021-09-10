@@ -131,11 +131,47 @@ describe('RegisterPageComponent', () => {
     expect(component.errorMessage).toBe(errorTypes.EMAIL_INVALID);
   });
 
-  it('should allow valid alphanumerics', () => {
+  it('should not accept invalid email domain', () => {
+    component.name = 'Alpha123';
+    component.countryCode = '91';
+    component.number = '1234567890123';
+    component.email = 'Test@test';
+    component.handleSubmit();
+    expect(component.errorMessage).toBe(errorTypes.EMAIL_INVALID);
+  });
+
+  it('should not accept invalid email domain format', () => {
+    component.name = 'Alpha123';
+    component.countryCode = '91';
+    component.number = '1234567890123';
+    component.email = 'abc.def@mail..com';
+    component.handleSubmit();
+    expect(component.errorMessage).toBe(errorTypes.EMAIL_INVALID);
+  });
+
+  it('should not accept invalid chars in email domain format', () => {
+    component.name = 'Alpha123';
+    component.countryCode = '91';
+    component.number = '1234567890123';
+    component.email = 'abc.def@mail#archive.com';
+    component.handleSubmit();
+    expect(component.errorMessage).toBe(errorTypes.EMAIL_INVALID);
+  });
+
+  it('should allow valid email', () => {
     component.name = 'Alpha123';
     component.countryCode = '91';
     component.number = '1234567890123';
     component.email = 'Test@abc.com';
+    component.handleSubmit();
+    expect(component.errorMessage).not.toBe(errorTypes.EMAIL_INVALID);
+  });
+
+  it('should allow valid chars email domain', () => {
+    component.name = 'Alpha123';
+    component.countryCode = '91';
+    component.number = '1234567890123';
+    component.email = 'abc.def@mail-archive.com';
     component.handleSubmit();
     expect(component.errorMessage).not.toBe(errorTypes.EMAIL_INVALID);
   });
